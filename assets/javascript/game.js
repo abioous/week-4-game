@@ -1,5 +1,8 @@
 
 
+function generateRandomInteger(min, max) {
+	return parseInt(min + Math.random()*(max-min));
+}
 
 
 var game = {
@@ -9,12 +12,32 @@ var game = {
 	winsCount : 0,
 	lossesCount : 0,
 
+
+	generateCrystalNumbers:function(needOddNumber) {
+		var hasOddNumerGenerated = false
+		for(var i=0; i<this.crystals.length;i++){
+			this.crystals[i] = generateRandomInteger(1, 12);
+			var isOddNuber = this.crystals[i] % 2 != 0;
+			if(isOddNuber) {
+				hasOddNumerGenerated = true;
+			}
+		}
+		//check if odd number is requried but 
+		// non of the generated crystal is odd, then generate 
+		// all crystals number again.
+		if(needOddNumber && !hasOddNumerGenerated) {
+			this.generateCrystalNumbers(needOddNumber);
+		}
+	},
+
+
 	start:function(){
 		this.userCounter = 0;
-		this.target = parseInt(19 + Math.random()*(120-19));
-		for(var i=0; i<this.crystals.length;i++){
-			this.crystals[i] = parseInt(1 + Math.random()*(12 -1));
-		}
+		this.target = generateRandomInteger(19, 120);
+		var isTargetOdd = this.target % 2 != 0
+		this.generateCrystalNumbers(isTargetOdd)
+
+		
 		this.render();
 	},
 	selectCrystal:function(index){
@@ -51,8 +74,7 @@ var game = {
 $(document).ready(function(){
 
 	game.start();
-	game.print();
-
+	
 	$('.crystal').click(function() {
 		var clickBtn = $(this);
 		var crystalId = clickBtn.attr('data-id');

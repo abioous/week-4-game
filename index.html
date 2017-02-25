@@ -1,27 +1,70 @@
-<html>
-	
+<html>	
 	<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="assets/javascript/game.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
+<body class="flex-container flex-vertical">	
+	<header>
+		<h1>Crystal Collector</h1>
+	</header>
+	<main>
 	
 
-	<div id="stage">
-		target<div id="target"></div>
-		<div>
-			<p>Wins: <span id="winsCount"></span></p>
-			<p>Losses:<span id="lossesCount"></span></p>
-		</div>
-		<div id="crystals">
-			<button class="crystal" data-id="0">Crystal 1 </button>
-			<button class="crystal" data-id="1">Crystal 2 </button>
-			<button class="crystal" data-id="2">Crystal 3 </button>
-			<button class="crystal" data-id="3">Crystal 4 </button>
+	<article class="info">
+		<h3 class="center">Game rules</h3>
+		<ul>
+			<li>
+				There are four crystal below. By clicking on a crystal you will add a specific amount of points yo your total score.
+			</li>
+			<li>
+				You win the game by matching your total score to random number, you lose game if your total score goes above the random number.
+			</li>
+			<li>
+				 The value of each crystal is hiden from you until you click on it.
+			</li>
+			<li>
+				Each time when the game starts, the game will change the values of each crystal
+			</li>
 
-		</div>score
-		<div id="userCounter"></div>
+		</ul>
+
+	</article>
+
+	<ul  class="stage flex-container flex-vertical ">
+		
+		<li class="info center text-blue">
+		Target:<span id="target" class="bold"></span>
+		</li>
+
+		<li class="info flex-end text-green">Wins: <span class="bold" id="winsCount"></span></li>
+		
+		<li class="info flex-end text-red">Losses:<span class="bold" id="lossesCount"></span></li>
+		
+		<li id="crystals" class="flex-center">
+			<div class="flex-container flex-uniform flex-space-around">
+			<button class="crystal" data-id="0"><img src="assets/images/crystal_1.png" alt="Crystal 1"> </button>
+			<button class="crystal" data-id="1"><img src="assets/images/crystal_2.png" alt="Crystal 2"> </button>
+			<button class="crystal" data-id="2"><img src="assets/images/crystal_3.png" alt="Crystal 3"> </button>
+			<button class="crystal" data-id="3"><img src="assets/images/crystal_4.png" alt="Crystal 4"> </button>
+			</div>
+			
+		</li>
+		<li class="center text-orange">Score:<span class="bold" id="userCounter"></span></li>
 
 	</div>
 
+	</main>
 
+	<footer>
+		<p>
+		 	&copy; 	Copyright 2017 Arleta Bilous
+		 </p>
+	</footer>
+</body>
 </html>

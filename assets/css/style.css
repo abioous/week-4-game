@@ -1,0 +1,118 @@
+.flex-container {
+	display: flex;
+}
+
+.flex-vertical {
+	flex-direction: column;
+}
+
+.flex-justify-content {
+	justify-content: center;
+}
+
+
+.flex-end {
+	align-self: flex-end;
+	margin-right:2em;
+}
+
+.flex-center {
+	align-self:center;
+}
+
+button {
+	background-color: #FDFD96;
+	margin-left:1em;
+	margin-right:1em;
+    border: 2px solid gold;
+    border-radius: 25px;
+}
+
+img {
+    border: 0px solid;
+    border-radius: 25px;
+
+}
+
+
+
+
+
+
+footer, header {
+	padding: 1em;
+	text-align:center;
+	color:white;
+	background-color: black;
+}
+
+
+
+ul {
+	list-style-type:none;
+}
+
+li {
+	margin-left:2em;
+	padding: 0.5em; 
+}
+
+h1 {
+	font-size: xx-large;
+
+}
+
+h3 {
+	font-size: x-large;
+	font-family:  "fantasy", "monospace";
+}
+
+main {
+	min-height: 85vh;
+}
+
+
+.stage > *{
+	padding: 0.4em;
+}
+
+.target {
+	color: red;
+	background-color: lightyellow;
+}
+
+
+
+.text-red {
+	color: red;
+}
+
+.text-green {
+	color: green;
+}
+
+
+.text-blue {
+	color: blue;
+}
+
+.text-orange {
+	color: orange;
+}
+
+.center {
+	text-align:center;
+}
+
+
+.bold {
+	font-size:large;
+	font-weight: bold;
+}
+
+.grey-line {
+	position: absolute;
+	background-color:grey;
+	height:1px;
+	width:100%;
+}
