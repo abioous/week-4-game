@@ -7,7 +7,7 @@ var game = {
 	userCounter:0,// holds sum of clicked crystal values.
 	crystals : [0,0,0,0],
 	winsCount : 0,
-	lossesCount : 0;
+	lossesCount : 0,
 
 	start:function(){
 		this.userCounter = 0;
@@ -15,9 +15,10 @@ var game = {
 		for(var i=0; i<this.crystals.length;i++){
 			this.crystals[i] = parseInt(1 + Math.random()*(12 -1));
 		}
+		this.render();
 	},
 	selectCrystal:function(index){
-		var crystal = this.crystals[i];
+		var crystal = this.crystals[index];
 		this.userCounter = this.userCounter + crystal;
 		if(this.userCounter == this.target){
 			this.winsCount++;
@@ -28,7 +29,17 @@ var game = {
 			this.start();
 		}
 
-	}
+		this.render();
+
+	},
+	render:function(){
+		$('#target').text(this.target);
+		$('#userCounter').text(this.userCounter);
+		$('#winsCount').text(this.winsCount);
+		$('#lossesCount').text(this.lossesCount);
+
+
+	},
 
 	print:function(){
 		console.log('target: ' + this.target);
@@ -43,7 +54,10 @@ $(document).ready(function(){
 	game.print();
 
 	$('.crystal').click(function() {
-		game.selectCrystal();
+		var clickBtn = $(this);
+		var crystalId = clickBtn.attr('data-id');
+		game.selectCrystal(crystalId);
+		
 		
 	})
 
